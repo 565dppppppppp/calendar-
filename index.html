@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Calendar</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="card" aria-label="Calendar">
+        <div class="clock">
+          <div class="time" id="time" aria-live="off">--:--:--</div>
+          <div class="today" id="todayLabel"></div>
+        </div>
+        <div class="head">
+          <button class="nav" id="prev" aria-label="Previous month">
+            &#8249;
+          </button>
+          <h1 id="title"></h1>
+          <button class="nav" id="next" aria-label="Next month">&#8250;</button>
+        </div>
+        <div class="grid" id="grid" role="grid"></div>
+        <p class="hint">
+          Click a date to see its events. Double-click to add one.
+        </p>
+      </section>
+
+      <aside class="card panel" aria-label="Events for selected day">
+        <h2 id="selTitle">Select a date</h2>
+        <p class="sub" id="selSub"></p>
+        <ul class="events" id="events"></ul>
+        <button class="add" id="addBtn">Add event</button>
+        <button class="theme" id="themeBtn">Switch theme</button>
+      </aside>
+    </main>
+
+    <dialog id="dlg">
+      <form method="dialog" id="form">
+        <h3 id="dlgTitle">New event</h3>
+        <label for="fTitle"
+          >Title<input
+            id="fTitle"
+            required
+            maxlength="80"
+            placeholder="Project demo"
+        /></label>
+        <label for="fTime"
+          >Time<input id="fTime" type="time" value="09:00"
+        /></label>
+        <label for="fNote"
+          >Note (optional)<textarea id="fNote" maxlength="300"></textarea>
+        </label>
+        <div class="row">
+          <button type="button" id="cancel">Cancel</button>
+          <button type="submit" class="primary">Save event</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="script.js"></script>
+  </body>
+</html>
